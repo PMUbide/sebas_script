@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # URL de la página web a scrapear
-url = 'https://ejemplo.com'
+url = "https://ejemplo.com"
 
 # Realizar una solicitud GET a la página
 response = requests.get(url)
@@ -10,17 +10,17 @@ response = requests.get(url)
 # Verificar que la solicitud fue exitosa
 if response.status_code == 200:
     # Parsear el contenido HTML con BeautifulSoup
-    soup = BeautifulSoup(response.content, 'html.parser')
+    soup = BeautifulSoup(response.content, "html.parser")
 
     # Lista de IDs que queremos extraer
-    ids_a_extraer = ['id1', 'id2', 'id3']
+    ids_a_extraer = ["id1", "id2", "id3", "id4", "id5"]
 
     # Crear o abrir el archivo .txt para guardar los datos
-    with open('output.txt', 'w', encoding='utf-8') as file:
+    with open("output.txt", "w", encoding="utf-8") as file:
         for element_id in ids_a_extraer:
             # Buscar el elemento por su ID
             element = soup.find(id=element_id)
-            
+
             if element:
                 # Escribir el texto del elemento en el archivo
                 file.write(f"ID: {element_id}\n")
